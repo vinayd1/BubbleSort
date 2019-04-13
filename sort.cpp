@@ -5,6 +5,7 @@
     Description: Visualization of Bubble sort Algorithm using graphics.h library.
 
 */
+#include <iostream>
 #include <graphics.h>
 #include <conio.h>
 
@@ -32,7 +33,6 @@ public:
         this -> size = size;
         this -> range = range;
         int gd = DETECT, gm;
-        initgraph(&gd,&gm,"");
         initwindow(this->size + 10, this->range + 10);
         values = new int[this -> size];
         for(int i = 0; i < this -> size; i++)
@@ -57,14 +57,18 @@ public:
     }
 
     ~Sorting(){
-        _getch();
+        getch();
         closegraph();
     }
 };
 
+//Driver Function
 int main()
 {
-    Sorting s(1000);        //First Parameter: Size of the Array, Second Parameter: Max value for each element.
+    int size;
+    std::cout<<"Enter Size of the Sorting Array: ";
+    std::cin>>size;
+    Sorting s(size);        //First Parameter: Size of the Array, Second Parameter: Max value for each element.
     s.visualize();          //Call this function to display the visualization.
 }
 
