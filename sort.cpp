@@ -13,9 +13,9 @@ class Sorting {
     int *values;
     int size, range;
     void draw(int i, int color = WHITE) {
-        int width = 3;
+        int y = getmaxy();
         setcolor(color);
-        line(i, 0, i, values[i]);
+        line(i, y, i, y - values[i]);
     }
     void _swap(int i, int j) {
         draw(i, BLACK);
